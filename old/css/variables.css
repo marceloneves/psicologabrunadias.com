@@ -1,0 +1,26 @@
+:root {
+  /* Paleta do mockup */
+  --color-off-white: #f9f7f2;
+  --color-beige: #e8ded1;
+  --color-beige-warm: #ddd2c4;
+  --color-taupe: #9a8b7a;
+  --color-taupe-dark: #6b5f54;
+  --color-brown: #4a4038;
+  --color-rose: #b99c91;
+  --color-rose-cta: #c4a89c;
+  --color-green: #5b6346;
+  --color-green-dark: #4a5240;
+  --color-green-light: #eef0ea;
+  --color-white: #ffffff;
+  --color-icon: #8a7a6a;
+
+  /* Tipografia — serif elegante + sans limpa */
+  --font-serif: "Libre Baskerville", "Georgia", serif;
+  --font-sans: "Lato", system-ui, sans-serif;
+  --font-size-root: 118.75%; /* base ~19px (antes 16px) */
+
+  --section-padding: clamp(4.5rem, 9vw, 7rem);
+  --container-max: 68rem;
+  --container-padding: clamp(1.5rem, 5vw, 3rem);
+  --transition: 0.25s ease;
+}

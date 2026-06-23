@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none">
+  <rect width="800" height="1000" fill="#E8DFD4"/>
+  <ellipse cx="400" cy="380" rx="140" ry="160" fill="#D4C4B0" opacity="0.6"/>
+  <path d="M280 720 Q400 620 520 720 L520 1000 L280 1000 Z" fill="#C9A99A" opacity="0.35"/>
+  <text x="400" y="920" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#8B7B6B" opacity="0.7">Foto profissional</text>
+</svg>

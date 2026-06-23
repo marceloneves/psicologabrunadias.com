@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none">
+  <rect width="800" height="1000" fill="#EDE6DC"/>
+  <rect x="120" y="200" width="560" height="400" rx="8" fill="#D4C4B0" opacity="0.4"/>
+  <ellipse cx="400" cy="420" rx="100" ry="120" fill="#C9A99A" opacity="0.45"/>
+  <path d="M320 580 Q400 500 480 580 L480 1000 L320 1000 Z" fill="#B8A090" opacity="0.3"/>
+  <text x="400" y="920" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#8B7B6B" opacity="0.7">Foto no consultório</text>
+</svg>
