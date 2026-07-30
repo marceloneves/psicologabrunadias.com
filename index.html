@@ -8,6 +8,8 @@
 <body>
 <x-dc>
 <helmet>
+<title>Bruna Dias · Psicóloga Clínica e Organizacional</title>
+<meta name="description" content="Psicoterapia online para adultos e soluções em saúde mental para empresas: implementação da NR-01, palestras e treinamentos corporativos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,14 +22,18 @@
   img { max-width: 100%; }
 
   /* ===== RESPONSIVO ===== */
+  @media (max-width: 960px) {
+    .nav-desktop { display: none !important; }
+    .nav-burger { display: inline-flex !important; }
+  }
+
   @media (max-width: 920px) {
     .grid-5 { grid-template-columns: repeat(2,1fr) !important; gap: 26px !important; }
-    .grid-4 { grid-template-columns: repeat(2,1fr) !important; }
     .grid-3 { grid-template-columns: repeat(2,1fr) !important; }
     .hero-grid { grid-template-columns: 1fr !important; min-height: 0 !important; }
     .hero-img { display: none !important; }
     .hero-img-m { display: block !important; width: calc(100% + 36px) !important; margin: 6px -36px 30px 0 !important; }
-    .hero-h1 { font-size: 54px !important; }
+    .hero-h1 { font-size: 46px !important; }
     .sobre-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
   }
 
@@ -37,12 +43,13 @@
     .head-pad { padding: 14px 20px !important; }
     .hero-pad { padding: 44px 24px !important; }
     .hero-img-m { width: calc(100% + 24px) !important; margin: 6px -24px 26px 0 !important; }
-    .grid-5, .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr !important; gap: 22px !important; }
-    .nav-links { display: none !important; }
-    .hero-h1 { font-size: 44px !important; }
+    .grid-5, .grid-3, .grid-2 { grid-template-columns: 1fr !important; gap: 22px !important; }
+    .hero-h1 { font-size: 36px !important; }
     .sec-title { font-size: 34px !important; }
     .cta-final { flex-direction: column !important; text-align: center !important; gap: 28px !important; }
     .cta-final h2 { font-size: 32px !important; }
+    .cta-btns { justify-content: center !important; }
+    .btn-w { width: 100% !important; justify-content: center !important; }
   }
 </style>
 <script src="./image-slot.js"></script>
@@ -52,41 +59,63 @@
 <div style="max-width:1280px; margin:0 auto; background:#FBF7F1; border-radius:22px; overflow:clip; box-shadow:0 50px 110px -45px rgba(70,52,40,0.5);">
 
   <!-- ===== HEADER ===== -->
-  <header style="position:sticky; top:0; z-index:50; background:rgba(251,247,241,0.88); backdrop-filter:blur(10px); border-bottom:1px solid #EBDFCF;">
+  <header style="position:sticky; top:0; z-index:50; background:rgba(251,247,241,0.92); backdrop-filter:blur(10px); border-bottom:1px solid #EBDFCF;">
     <div class="head-pad" style="max-width:1180px; margin:0 auto; padding:16px 40px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
       <a href="#topo" style="display:flex; align-items:center; text-decoration:none;">
         <img src="./bruna-dias-logo.webp" alt="Bruna Dias Psicologia" style="display:block; height:50px; width:auto;">
       </a>
-      <nav class="nav-links" style="display:flex; align-items:center; gap:30px;">
+      <nav class="nav-desktop" style="display:flex; align-items:center; gap:26px;">
         <a href="#sobre" style="text-decoration:none; color:#6E645B; font-size:13.5px; font-weight:600; letter-spacing:.3px;">Sobre</a>
-        <a href="#atendimentos" style="text-decoration:none; color:#6E645B; font-size:13.5px; font-weight:600; letter-spacing:.3px;">Atendimentos</a>
-        <a href="#como-funciona" style="text-decoration:none; color:#6E645B; font-size:13.5px; font-weight:600; letter-spacing:.3px;">Como funciona</a>
-        <a href="#diferenciais" style="text-decoration:none; color:#6E645B; font-size:13.5px; font-weight:600; letter-spacing:.3px;">Diferenciais</a>
-        <a href="#perguntas" style="text-decoration:none; color:#6E645B; font-size:13.5px; font-weight:600; letter-spacing:.3px;">Perguntas</a>
+        <a href="#psicoterapia" style="text-decoration:none; color:#6E645B; font-size:13.5px; font-weight:600; letter-spacing:.3px;">Psicoterapia</a>
+        <a href="#empresas" style="text-decoration:none; color:#6E645B; font-size:13.5px; font-weight:600; letter-spacing:.3px;">Empresas</a>
+        <a href="#avaliacoes" style="text-decoration:none; color:#6E645B; font-size:13.5px; font-weight:600; letter-spacing:.3px;">Avaliações</a>
+        <a href="#faq" style="text-decoration:none; color:#6E645B; font-size:13.5px; font-weight:600; letter-spacing:.3px;">FAQ</a>
         <a href="{{ whatsapp }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; background:#5E6B4D; color:#FBF7F1; text-decoration:none; padding:11px 20px; border-radius:999px; font-size:13px; font-weight:700; letter-spacing:.3px;">
-          <span style="font-size:17px;" class="ph ph-whatsapp-logo"></span> Agendar sessão
+          <span style="font-size:17px;" class="ph ph-whatsapp-logo"></span> Agendar Sessão
         </a>
       </nav>
+      <button class="nav-burger" onClick="{{ onNav }}" aria-label="Abrir menu" style="display:none; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; border:1px solid #E3D5C4; background:#FBF7F1; color:#6E645B; cursor:pointer;">
+        <span style="font-size:24px;" class="ph {{ navIcon }}"></span>
+      </button>
     </div>
+
+    <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid #EBDFCF; background:#FBF7F1; padding:14px 20px 20px; display:flex; flex-direction:column; gap:4px;">
+        <a href="#sobre" onClick="{{ onNavClose }}" style="text-decoration:none; color:#5A5149; font-size:16px; font-weight:600; padding:12px 4px; border-bottom:1px solid #F1E7DA;">Sobre</a>
+        <a href="#psicoterapia" onClick="{{ onNavClose }}" style="text-decoration:none; color:#5A5149; font-size:16px; font-weight:600; padding:12px 4px; border-bottom:1px solid #F1E7DA;">Psicoterapia</a>
+        <a href="#empresas" onClick="{{ onNavClose }}" style="text-decoration:none; color:#5A5149; font-size:16px; font-weight:600; padding:12px 4px; border-bottom:1px solid #F1E7DA;">Empresas</a>
+        <a href="#avaliacoes" onClick="{{ onNavClose }}" style="text-decoration:none; color:#5A5149; font-size:16px; font-weight:600; padding:12px 4px; border-bottom:1px solid #F1E7DA;">Avaliações</a>
+        <a href="#faq" onClick="{{ onNavClose }}" style="text-decoration:none; color:#5A5149; font-size:16px; font-weight:600; padding:12px 4px; border-bottom:1px solid #F1E7DA;">FAQ</a>
+        <a href="{{ whatsapp }}" target="_blank" rel="noopener" onClick="{{ onNavClose }}" style="margin-top:12px; display:inline-flex; align-items:center; justify-content:center; gap:9px; background:#5E6B4D; color:#FBF7F1; text-decoration:none; padding:15px 22px; border-radius:999px; font-size:14.5px; font-weight:700;">
+          <span style="font-size:19px;" class="ph ph-whatsapp-logo"></span> Agendar Sessão
+        </a>
+        <a href="{{ whatsappEmpresa }}" target="_blank" rel="noopener" onClick="{{ onNavClose }}" style="display:inline-flex; align-items:center; justify-content:center; gap:9px; background:transparent; color:#3B342D; text-decoration:none; padding:14px 22px; border-radius:999px; border:1.5px solid #C6B8A6; font-size:14.5px; font-weight:700;">
+          <span style="font-size:19px;" class="ph ph-buildings"></span> Solicitar Proposta
+        </a>
+      </div>
+    </sc-if>
   </header>
 
-  <!-- ===== HERO ===== -->
+  <!-- ===== 1. HERO ===== -->
   <section id="topo" style="background:linear-gradient(180deg,#FBF7F1 0%,#F7EFE5 100%);">
     <div class="hero-grid" style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1.02fr 1fr; align-items:center; min-height:620px;">
       <div class="hero-pad" style="padding:60px 36px 60px 50px;">
-        <p style="margin:0 0 18px; font-size:12px; font-weight:700; letter-spacing:3px; color:#B98A75; text-transform:uppercase;">Psicoterapia online para</p>
-        <h1 class="hero-h1" style="margin:0 0 24px; font-family:'Cormorant Garamond',serif; font-weight:500; font-size:74px; line-height:0.96; letter-spacing:-0.5px; color:#3B342D;">adolescentes<br>e adultos</h1>
-        <p style="margin:0 0 18px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:25px; line-height:1.35; color:#7A6F62; max-width:430px;">Abordagem baseada na Terapia Cognitivo-Comportamental</p>
+        <p style="margin:0 0 18px; font-size:12px; font-weight:700; letter-spacing:3px; color:#B98A75; text-transform:uppercase;">CRP 12/27975</p>
+        <h1 class="hero-h1" style="margin:0 0 24px; font-family:'Cormorant Garamond',serif; font-weight:500; font-size:62px; line-height:1.0; letter-spacing:-0.5px; color:#3B342D;">Psicóloga Clínica<br>e Organizacional</h1>
+        <p style="margin:0 0 18px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:25px; line-height:1.35; color:#7A6F62; max-width:450px;">Psicoterapia online para adultos e soluções em saúde mental para empresas.</p>
         <div class="hero-img-m" style="display:none; position:relative; height:360px; width:100%; margin:6px 0 30px;">
           <img src="./bruna-dias-3.webp" alt="Bruna Dias, psicóloga" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:88% center; -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 16%, #000 40%); mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 16%, #000 40%);">
         </div>
-        <p style="margin:0 0 34px; font-size:16px; line-height:1.75; color:#6E645B; max-width:430px;">Ajudo você a compreender suas emoções, desenvolver habilidades e construir uma vida com mais equilíbrio, leveza e propósito.</p>
-        <div style="display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
-          <a href="{{ whatsapp }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; background:#5E6B4D; color:#FBF7F1; text-decoration:none; padding:16px 30px; border-radius:999px; font-size:15px; font-weight:700; letter-spacing:.3px; box-shadow:0 12px 28px -12px rgba(94,107,77,0.7);">
-            <span style="font-size:21px;" class="ph ph-whatsapp-logo"></span> Agendar sessão
+        <p style="margin:0 0 34px; font-size:16px; line-height:1.75; color:#6E645B; max-width:460px;">Atendimento psicológico online para adultos e atuação em Psicologia Organizacional, implementação da NR-01, palestras e treinamentos corporativos.</p>
+        <div class="cta-btns" style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+          <a href="{{ whatsapp }}" target="_blank" rel="noopener" class="btn-w" style="display:inline-flex; align-items:center; gap:10px; background:#5E6B4D; color:#FBF7F1; text-decoration:none; padding:16px 28px; border-radius:999px; font-size:15px; font-weight:700; letter-spacing:.3px; box-shadow:0 12px 28px -12px rgba(94,107,77,0.7);">
+            <span style="font-size:21px;" class="ph ph-whatsapp-logo"></span> Agendar Psicoterapia
           </a>
-          <span style="font-size:14px; color:#9B8E80; font-weight:600;">Atendimento 100% online</span>
+          <a href="{{ whatsappEmpresa }}" target="_blank" rel="noopener" class="btn-w" style="display:inline-flex; align-items:center; gap:10px; background:transparent; color:#3B342D; text-decoration:none; padding:15px 26px; border-radius:999px; border:1.5px solid #C6B8A6; font-size:15px; font-weight:700; letter-spacing:.3px;">
+            <span style="font-size:21px;" class="ph ph-buildings"></span> Solicitar Proposta
+          </a>
         </div>
+        <p style="margin:20px 0 0; font-size:14px; color:#9B8E80; font-weight:600;">Atendimento 100% online</p>
       </div>
       <div class="hero-img" style="position:relative; align-self:stretch;">
         <img src="./bruna-dias-3.webp" alt="Bruna Dias, psicóloga" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:88% center; -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 16%, #000 40%); mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 16%, #000 40%);">
@@ -94,67 +123,30 @@
     </div>
   </section>
 
-  <!-- ===== ATENDIMENTOS ===== -->
-  <section id="atendimentos" class="sec-pad" style="background:#FBF7F1; padding:96px 40px;">
-    <div style="max-width:1180px; margin:0 auto;">
-      <p style="margin:0 0 12px; text-align:center; font-size:12px; font-weight:700; letter-spacing:3px; color:#B98A75; text-transform:uppercase;">Como posso te ajudar</p>
-      <h2 class="sec-title" style="margin:0 0 56px; text-align:center; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:44px; color:#3B342D;">Principais questões trabalhadas</h2>
-      <div class="grid-5" style="display:grid; grid-template-columns:repeat(5,1fr); gap:22px;">
-
-        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
-          <span style="display:flex; align-items:center; justify-content:center; width:74px; height:74px; border-radius:50%; background:#F1E3D6; color:#B98A75; font-size:34px; margin-bottom:18px;" class="ph ph-brain"></span>
-          <h3 style="margin:0 0 8px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:#3B342D;">Ansiedade</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.6; color:#8A7E72;">Preocupação excessiva, medos e crises.</p>
-        </div>
-
-        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
-          <span style="display:flex; align-items:center; justify-content:center; width:74px; height:74px; border-radius:50%; background:#F1E3D6; color:#B98A75; font-size:34px; margin-bottom:18px;" class="ph ph-user"></span>
-          <h3 style="margin:0 0 8px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:#3B342D;">Autoestima</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.6; color:#8A7E72;">Autocrítica, insegurança e baixa confiança.</p>
-        </div>
-
-        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
-          <span style="display:flex; align-items:center; justify-content:center; width:74px; height:74px; border-radius:50%; background:#F1E3D6; color:#B98A75; font-size:34px; margin-bottom:18px;" class="ph ph-heart"></span>
-          <h3 style="margin:0 0 8px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:#3B342D;">Relacionamentos</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.6; color:#8A7E72;">Conflitos, dependência emocional e vínculos.</p>
-        </div>
-
-        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
-          <span style="display:flex; align-items:center; justify-content:center; width:74px; height:74px; border-radius:50%; background:#F1E3D6; color:#B98A75; font-size:34px; margin-bottom:18px;" class="ph ph-flower-lotus"></span>
-          <h3 style="margin:0 0 8px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:#3B342D;">Sobrecarga emocional</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.6; color:#8A7E72;">Estresse, cansaço mental e esgotamento.</p>
-        </div>
-
-        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
-          <span style="display:flex; align-items:center; justify-content:center; width:74px; height:74px; border-radius:50%; background:#F1E3D6; color:#B98A75; font-size:34px; margin-bottom:18px;" class="ph ph-moon-stars"></span>
-          <h3 style="margin:0 0 8px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:#3B342D;">Desenvolvimento pessoal</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.6; color:#8A7E72;">Autoconhecimento, propósito e equilíbrio.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SOBRE ===== -->
+  <!-- ===== 2. SOBRE ===== -->
   <section id="sobre" class="sec-pad" style="background:#EFE3D4; padding:90px 40px;">
     <div class="sobre-grid grid-2" style="max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1fr 0.85fr; gap:64px; align-items:center;">
       <div>
         <p style="margin:0 0 14px; font-size:12px; font-weight:700; letter-spacing:3px; color:#B98A75; text-transform:uppercase;">Sobre a psicóloga</p>
-        <h2 style="margin:0 0 10px; font-family:'Cormorant Garamond',serif; font-weight:500; font-size:48px; line-height:1.05; color:#3B342D;">Olá, eu sou<br>Bruna Dias</h2>
-        <p style="margin:0 0 22px; font-size:14px; font-weight:700; letter-spacing:.5px; color:#8C7A66;">Psicóloga &nbsp;|&nbsp; CRP XX/XXXXX</p>
-        <p style="margin:0 0 28px; font-size:15.5px; line-height:1.8; color:#6E645B; max-width:480px;">Atuo com base na Terapia Cognitivo-Comportamental, ajudando adolescentes e adultos a desenvolverem habilidades para lidar com desafios emocionais e viverem com mais leveza e propósito.</p>
+        <h2 style="margin:0 0 10px; font-family:'Cormorant Garamond',serif; font-weight:500; font-size:48px; line-height:1.05; color:#3B342D;">Muito prazer,<br>Bruna Dias.</h2>
+        <p style="margin:0 0 26px; font-size:14px; font-weight:700; letter-spacing:.5px; color:#8C7A66;">Psicóloga Clínica e Organizacional &nbsp;|&nbsp; CRP 12/27975</p>
+        <p style="margin:0 0 18px; font-size:15.5px; line-height:1.8; color:#6E645B; max-width:520px;">Atuo no atendimento psicológico de adultos e no desenvolvimento de pessoas em organizações, unindo acolhimento, ética e práticas fundamentadas em evidências científicas para promover saúde mental, desenvolvimento humano e bem-estar.</p>
+        <p style="margin:0 0 18px; font-size:15.5px; line-height:1.8; color:#6E645B; max-width:520px;">Na clínica, minha prática é norteada pela Terapia Cognitivo-Comportamental (TCC), uma abordagem baseada em evidências científicas que orienta o processo terapêutico de forma ética, estruturada e individualizada.</p>
+        <p style="margin:0 0 32px; font-size:15.5px; line-height:1.8; color:#6E645B; max-width:520px;">Acredito que a psicoterapia é um espaço de acolhimento, escuta e construção de mudanças significativas. Meu objetivo é oferecer um atendimento ético, humanizado e baseado em evidências, respeitando a história, as necessidades e o momento de vida de cada pessoa, para que juntos possamos construir caminhos em direção a mais equilíbrio, autonomia e qualidade de vida.</p>
+
+        <p style="margin:0 0 16px; font-size:12px; font-weight:700; letter-spacing:2.5px; color:#B98A75; text-transform:uppercase;">Formação</p>
         <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:34px;">
           <div style="display:flex; align-items:center; gap:13px;">
-            <span style="font-size:22px; color:#B98A75;" class="ph ph-graduation-cap"></span>
-            <span style="font-size:15px; color:#5A5149; font-weight:500;">Pós-graduação em Neuropsicologia</span>
+            <span style="font-size:22px; color:#B98A75; flex-shrink:0;" class="ph ph-certificate"></span>
+            <span style="font-size:15px; color:#5A5149; font-weight:500;">Especialista em Psicoterapias Baseadas em Evidências &ndash; TCC</span>
           </div>
           <div style="display:flex; align-items:center; gap:13px;">
-            <span style="font-size:22px; color:#B98A75;" class="ph ph-certificate"></span>
-            <span style="font-size:15px; color:#5A5149; font-weight:500;">Formação em Terapia Cognitivo-Comportamental</span>
+            <span style="font-size:22px; color:#B98A75; flex-shrink:0;" class="ph ph-graduation-cap"></span>
+            <span style="font-size:15px; color:#5A5149; font-weight:500;">Pós-graduanda em Neuropsicologia</span>
           </div>
           <div style="display:flex; align-items:center; gap:13px;">
-            <span style="font-size:22px; color:#B98A75;" class="ph ph-pulse"></span>
-            <span style="font-size:15px; color:#5A5149; font-weight:500;">Experiência clínica em saúde mental e desenvolvimento humano</span>
+            <span style="font-size:22px; color:#B98A75; flex-shrink:0;" class="ph ph-brain"></span>
+            <span style="font-size:15px; color:#5A5149; font-weight:500;">Formação em Análise do Comportamento Aplicada (ABA)</span>
           </div>
         </div>
         <a href="{{ whatsapp }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; background:#5E6B4D; color:#FBF7F1; text-decoration:none; padding:14px 26px; border-radius:999px; font-size:14px; font-weight:700; letter-spacing:.3px;">
@@ -162,13 +154,68 @@
         </a>
       </div>
       <div>
-        <img src="./bruna-dias-2.webp" alt="Bruna Dias, psicóloga" style="display:block; width:100%; height:520px; object-fit:cover; object-position:center; border-radius:8px; box-shadow:0 30px 60px -30px rgba(90,70,55,0.5);">
+        <img src="./bruna-dias-2.webp" alt="Bruna Dias, psicóloga" style="display:block; width:100%; height:560px; object-fit:cover; object-position:center; border-radius:8px; box-shadow:0 30px 60px -30px rgba(90,70,55,0.5);">
       </div>
     </div>
   </section>
 
-  <!-- ===== COMO FUNCIONA ===== -->
-  <section id="como-funciona" class="sec-pad" style="background:#FBF7F1; padding:96px 40px;">
+  <!-- ===== 3. PSICOTERAPIA ===== -->
+  <section id="psicoterapia" class="sec-pad" style="background:#FBF7F1; padding:96px 40px 80px;">
+    <div style="max-width:1180px; margin:0 auto;">
+      <div style="text-align:center; max-width:720px; margin:0 auto 60px;">
+        <span style="display:inline-flex; align-items:center; gap:8px; background:#F1E3D6; color:#A9765D; padding:8px 18px; border-radius:999px; font-size:11.5px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:22px;">
+          <span style="font-size:15px;" class="ph ph-heart"></span> Para você
+        </span>
+        <h2 class="sec-title" style="margin:0 0 20px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:44px; line-height:1.1; color:#3B342D;">Psicoterapia para Adultos</h2>
+        <p style="margin:0; font-size:16px; line-height:1.8; color:#6E645B;">Atendo adultos de forma online, oferecendo um espaço seguro para compreender emoções, fortalecer recursos emocionais e desenvolver estratégias para enfrentar os desafios da vida com mais equilíbrio e bem-estar.</p>
+      </div>
+
+      <h3 style="margin:0 0 44px; text-align:center; font-family:'Cormorant Garamond',serif; font-weight:500; font-style:italic; font-size:29px; color:#8C7A66;">Como posso te ajudar?</h3>
+
+      <div class="grid-5" style="display:grid; grid-template-columns:repeat(5,1fr); gap:22px;">
+
+        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+          <span style="display:flex; align-items:center; justify-content:center; width:74px; height:74px; border-radius:50%; background:#F1E3D6; color:#B98A75; font-size:34px; margin-bottom:18px;" class="ph ph-brain"></span>
+          <h4 style="margin:0 0 8px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:#3B342D;">Ansiedade</h4>
+          <p style="margin:0; font-size:13.5px; line-height:1.6; color:#8A7E72;">Preocupação excessiva, medos e crises.</p>
+        </div>
+
+        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+          <span style="display:flex; align-items:center; justify-content:center; width:74px; height:74px; border-radius:50%; background:#F1E3D6; color:#B98A75; font-size:34px; margin-bottom:18px;" class="ph ph-leaf"></span>
+          <h4 style="margin:0 0 8px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:#3B342D;">Autoconhecimento</h4>
+          <p style="margin:0; font-size:13.5px; line-height:1.6; color:#8A7E72;">Compreender emoções, valores e escolhas.</p>
+        </div>
+
+        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+          <span style="display:flex; align-items:center; justify-content:center; width:74px; height:74px; border-radius:50%; background:#F1E3D6; color:#B98A75; font-size:34px; margin-bottom:18px;" class="ph ph-chats-circle"></span>
+          <h4 style="margin:0 0 8px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:#3B342D;">Relacionamentos</h4>
+          <p style="margin:0; font-size:13.5px; line-height:1.6; color:#8A7E72;">Conflitos, dependência emocional e vínculos.</p>
+        </div>
+
+        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+          <span style="display:flex; align-items:center; justify-content:center; width:74px; height:74px; border-radius:50%; background:#F1E3D6; color:#B98A75; font-size:34px; margin-bottom:18px;" class="ph ph-scales"></span>
+          <h4 style="margin:0 0 8px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:#3B342D;">Estresse e Sobrecarga</h4>
+          <p style="margin:0; font-size:13.5px; line-height:1.6; color:#8A7E72;">Cansaço mental, esgotamento e rotina intensa.</p>
+        </div>
+
+        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+          <span style="display:flex; align-items:center; justify-content:center; width:74px; height:74px; border-radius:50%; background:#F1E3D6; color:#B98A75; font-size:34px; margin-bottom:18px;" class="ph ph-sparkle"></span>
+          <h4 style="margin:0 0 8px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:#3B342D;">Desenvolvimento Pessoal</h4>
+          <p style="margin:0; font-size:13.5px; line-height:1.6; color:#8A7E72;">Propósito, autonomia e qualidade de vida.</p>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top:52px;">
+        <a href="{{ whatsapp }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; background:#5E6B4D; color:#FBF7F1; text-decoration:none; padding:16px 32px; border-radius:999px; font-size:15px; font-weight:700; letter-spacing:.3px; box-shadow:0 12px 28px -12px rgba(94,107,77,0.7);">
+          <span style="font-size:21px;" class="ph ph-whatsapp-logo"></span> Agendar Sessão
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. COMO FUNCIONA ===== -->
+  <section class="sec-pad" style="background:#F6EEE2; padding:86px 40px;">
     <div style="max-width:1080px; margin:0 auto;">
       <p style="margin:0 0 12px; text-align:center; font-size:12px; font-weight:700; letter-spacing:3px; color:#B98A75; text-transform:uppercase;">Como funciona o atendimento</p>
       <h2 class="sec-title" style="margin:0 0 60px; text-align:center; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:44px; color:#3B342D;">Simples do início ao fim</h2>
@@ -193,90 +240,132 @@
         </div>
 
       </div>
-      <div style="text-align:center; margin-top:56px;">
-        <a href="{{ whatsapp }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; background:transparent; color:#5E6B4D; text-decoration:none; padding:13px 28px; border-radius:999px; border:1.5px solid #5E6B4D; font-size:14px; font-weight:700; letter-spacing:.3px;">
-          <span style="font-size:18px;" class="ph ph-whatsapp-logo"></span> Quero dar o primeiro passo
+    </div>
+  </section>
+
+  <!-- ===== 5. SOLUÇÕES PARA EMPRESAS ===== -->
+  <section id="empresas" class="sec-pad" style="background:#E9EAE1; padding:96px 40px;">
+    <div style="max-width:1180px; margin:0 auto;">
+      <div style="text-align:center; max-width:740px; margin:0 auto 56px;">
+        <span style="display:inline-flex; align-items:center; gap:8px; background:#D7DBCC; color:#4C5940; padding:8px 18px; border-radius:999px; font-size:11.5px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:22px;">
+          <span style="font-size:15px;" class="ph ph-buildings"></span> Para sua empresa
+        </span>
+        <h2 class="sec-title" style="margin:0 0 20px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:44px; line-height:1.1; color:#333A2B;">Soluções para Empresas</h2>
+        <p style="margin:0; font-size:16px; line-height:1.8; color:#5E6455;">Acredito que ambientes saudáveis também são construídos por meio do cuidado com as pessoas. Atuo junto às organizações desenvolvendo estratégias voltadas à promoção da saúde mental, desenvolvimento humano e fortalecimento das relações de trabalho.</p>
+      </div>
+
+      <div class="grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:26px; align-items:stretch;">
+
+        <div style="background:#FBFAF5; border-radius:14px; padding:34px 30px; display:flex; flex-direction:column;">
+          <span style="display:flex; align-items:center; justify-content:center; width:60px; height:60px; border-radius:14px; background:#E4E7DA; color:#5E6B4D; font-size:28px; margin-bottom:22px;" class="ph ph-clipboard-text"></span>
+          <h3 style="margin:0 0 10px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:24px; line-height:1.2; color:#333A2B;">Implementação da NR-01</h3>
+          <p style="margin:0 0 20px; font-size:14px; line-height:1.7; color:#6B7161;">Gestão de Riscos Psicossociais em conformidade com a norma, do mapeamento ao plano de ação.</p>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:auto;">
+            <div style="background:#F1F2EA; border-left:3px solid #8C9A78; border-radius:8px; padding:12px 14px;">
+              <p style="margin:0 0 3px; font-size:13.5px; font-weight:700; color:#414A36;">Diagnóstico</p>
+              <p style="margin:0; font-size:12.5px; line-height:1.55; color:#767C6C;">Identificação e avaliação dos riscos psicossociais.</p>
+            </div>
+            <div style="background:#F1F2EA; border-left:3px solid #8C9A78; border-radius:8px; padding:12px 14px;">
+              <p style="margin:0 0 3px; font-size:13.5px; font-weight:700; color:#414A36;">Ações de promoção</p>
+              <p style="margin:0; font-size:12.5px; line-height:1.55; color:#767C6C;">Programas de promoção em saúde mental no trabalho.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#FBFAF5; border-radius:14px; padding:34px 30px; display:flex; flex-direction:column;">
+          <span style="display:flex; align-items:center; justify-content:center; width:60px; height:60px; border-radius:14px; background:#E4E7DA; color:#5E6B4D; font-size:28px; margin-bottom:22px;" class="ph ph-microphone"></span>
+          <h3 style="margin:0 0 10px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:24px; line-height:1.2; color:#333A2B;">Palestras Corporativas</h3>
+          <p style="margin:0 0 20px; font-size:14px; line-height:1.7; color:#6B7161;">Encontros que sensibilizam equipes e lideranças com linguagem acessível e base científica.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:auto;">
+            <span style="background:#F1F2EA; color:#4C5940; border-radius:999px; padding:9px 15px; font-size:13px; font-weight:600;">Saúde mental no trabalho</span>
+            <span style="background:#F1F2EA; color:#4C5940; border-radius:999px; padding:9px 15px; font-size:13px; font-weight:600;">Qualidade de vida</span>
+          </div>
+        </div>
+
+        <div style="background:#FBFAF5; border-radius:14px; padding:34px 30px; display:flex; flex-direction:column;">
+          <span style="display:flex; align-items:center; justify-content:center; width:60px; height:60px; border-radius:14px; background:#E4E7DA; color:#5E6B4D; font-size:28px; margin-bottom:22px;" class="ph ph-users-three"></span>
+          <h3 style="margin:0 0 10px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:24px; line-height:1.2; color:#333A2B;">Treinamentos e Desenvolvimento de Equipes</h3>
+          <p style="margin:0 0 20px; font-size:14px; line-height:1.7; color:#6B7161;">Programas práticos e personalizados para fortalecer relações e competências no dia a dia.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:auto;">
+            <span style="background:#F1F2EA; color:#4C5940; border-radius:999px; padding:9px 15px; font-size:13px; font-weight:600;">Comunicação assertiva</span>
+            <span style="background:#F1F2EA; color:#4C5940; border-radius:999px; padding:9px 15px; font-size:13px; font-weight:600;">Inteligência emocional</span>
+            <span style="background:#F1F2EA; color:#4C5940; border-radius:999px; padding:9px 15px; font-size:13px; font-weight:600;">Gestão de conflitos</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top:52px;">
+        <a href="{{ whatsappEmpresa }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; background:#3B4231; color:#F5F5EE; text-decoration:none; padding:16px 32px; border-radius:999px; font-size:15px; font-weight:700; letter-spacing:.3px; box-shadow:0 14px 30px -14px rgba(51,58,43,0.7);">
+          <span style="font-size:21px;" class="ph ph-buildings"></span> Solicitar Proposta
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ===== DIFERENCIAIS ===== -->
-  <section id="diferenciais" class="sec-pad" style="background:#EFE3D4; padding:90px 40px;">
+  <!-- ===== 6. AVALIAÇÕES ===== -->
+  <section id="avaliacoes" class="sec-pad" style="background:#FBF7F1; padding:96px 40px;">
     <div style="max-width:1180px; margin:0 auto;">
-      <p style="margin:0 0 12px; text-align:center; font-size:12px; font-weight:700; letter-spacing:3px; color:#B98A75; text-transform:uppercase;">Diferenciais do meu trabalho</p>
-      <h2 class="sec-title" style="margin:0 0 56px; text-align:center; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:44px; color:#3B342D;">O que torna o cuidado único</h2>
-      <div class="grid-4" style="display:grid; grid-template-columns:repeat(4,1fr); gap:30px;">
+      <p style="margin:0 0 12px; text-align:center; font-size:12px; font-weight:700; letter-spacing:3px; color:#B98A75; text-transform:uppercase;">Avaliações</p>
+      <h2 class="sec-title" style="margin:0 0 30px; text-align:center; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:44px; line-height:1.1; color:#3B342D;">Avaliações de quem já passou por aqui</h2>
 
-        <div style="background:#FBF7F1; border-radius:10px; padding:30px 26px;">
-          <span style="font-size:30px; color:#B98A75; display:block; margin-bottom:18px;" class="ph ph-flask"></span>
-          <h3 style="margin:0 0 9px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:21px; color:#3B342D;">Abordagem científica</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.65; color:#8A7E72;">Terapia Cognitivo-Comportamental baseada em evidências.</p>
+      <!-- nota do Google -->
+      <div style="display:flex; justify-content:center; margin-bottom:52px;">
+        <div style="display:flex; align-items:center; gap:18px; background:#F6EEE2; border:1px solid #EADCCB; border-radius:16px; padding:20px 28px; flex-wrap:wrap; justify-content:center;">
+          <span style="font-size:30px; color:#B98A75;" class="ph ph-google-logo"></span>
+          <div style="text-align:left;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-size:19px; letter-spacing:2px; color:#E8B04B;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:#3B342D;">{{ googleRating }} no Google</span>
+            </div>
+            <p style="margin:4px 0 0; font-size:13.5px; color:#8A7E72;">Baseado nas avaliações dos pacientes.</p>
+          </div>
         </div>
-
-        <div style="background:#FBF7F1; border-radius:10px; padding:30px 26px;">
-          <span style="font-size:30px; color:#B98A75; display:block; margin-bottom:18px;" class="ph ph-monitor"></span>
-          <h3 style="margin:0 0 9px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:21px; color:#3B342D;">Atendimento online</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.65; color:#8A7E72;">Comodidade, sigilo e flexibilidade para a sua rotina.</p>
-        </div>
-
-        <div style="background:#FBF7F1; border-radius:10px; padding:30px 26px;">
-          <span style="font-size:30px; color:#B98A75; display:block; margin-bottom:18px;" class="ph ph-user-focus"></span>
-          <h3 style="margin:0 0 9px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:21px; color:#3B342D;">Plano personalizado</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.65; color:#8A7E72;">Cada pessoa é única. O atendimento é feito para você.</p>
-        </div>
-
-        <div style="background:#FBF7F1; border-radius:10px; padding:30px 26px;">
-          <span style="font-size:30px; color:#B98A75; display:block; margin-bottom:18px;" class="ph ph-hand-heart"></span>
-          <h3 style="margin:0 0 9px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:21px; color:#3B342D;">Acolhimento e empatia</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.65; color:#8A7E72;">Um ambiente seguro para você ser quem é.</p>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- ===== PROVA SOCIAL ===== -->
-  <section class="sec-pad" style="background:#FBF7F1; padding:96px 40px;">
-    <div style="max-width:1180px; margin:0 auto;">
-      <p style="margin:0 0 12px; text-align:center; font-size:12px; font-weight:700; letter-spacing:3px; color:#B98A75; text-transform:uppercase;">O que dizem sobre o atendimento</p>
-      <h2 class="sec-title" style="margin:0 0 56px; text-align:center; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:44px; color:#3B342D;">Histórias de transformação</h2>
       <div class="grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
 
         <div style="background:#F6EEE2; border-radius:12px; padding:34px 30px;">
-          <span style="font-family:'Cormorant Garamond',serif; font-size:56px; line-height:0.4; color:#D3B19F; display:block; height:30px;">&ldquo;</span>
+          <span style="display:block; margin-bottom:16px; font-size:15px; letter-spacing:2px; color:#E8B04B;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           <p style="margin:0 0 22px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; line-height:1.5; color:#5A5149;">A terapia me ajudou a entender meus pensamentos e a lidar melhor com a minha ansiedade.</p>
           <p style="margin:0; font-size:12px; font-weight:700; letter-spacing:1.5px; color:#A99683; text-transform:uppercase;">Paciente</p>
         </div>
 
         <div style="background:#F6EEE2; border-radius:12px; padding:34px 30px;">
-          <span style="font-family:'Cormorant Garamond',serif; font-size:56px; line-height:0.4; color:#D3B19F; display:block; height:30px;">&ldquo;</span>
+          <span style="display:block; margin-bottom:16px; font-size:15px; letter-spacing:2px; color:#E8B04B;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           <p style="margin:0 0 22px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; line-height:1.5; color:#5A5149;">Hoje me sinto mais confiante e com ferramentas para lidar com os desafios do dia a dia.</p>
           <p style="margin:0; font-size:12px; font-weight:700; letter-spacing:1.5px; color:#A99683; text-transform:uppercase;">Paciente</p>
         </div>
 
         <div style="background:#F6EEE2; border-radius:12px; padding:34px 30px;">
-          <span style="font-family:'Cormorant Garamond',serif; font-size:56px; line-height:0.4; color:#D3B19F; display:block; height:30px;">&ldquo;</span>
+          <span style="display:block; margin-bottom:16px; font-size:15px; letter-spacing:2px; color:#E8B04B;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           <p style="margin:0 0 22px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; line-height:1.5; color:#5A5149;">Um atendimento acolhedor, profissional e realmente transformador.</p>
           <p style="margin:0; font-size:12px; font-weight:700; letter-spacing:1.5px; color:#A99683; text-transform:uppercase;">Paciente</p>
         </div>
 
       </div>
+
+      <div style="text-align:center; margin-top:48px;">
+        <a href="{{ googleUrl }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; background:transparent; color:#3B342D; text-decoration:none; padding:14px 28px; border-radius:999px; border:1.5px solid #C6B8A6; font-size:14.5px; font-weight:700; letter-spacing:.3px;">
+          <span style="font-size:20px;" class="ph ph-google-logo"></span> Ver todas as avaliações no Google
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- ===== FAQ ===== -->
-  <section id="perguntas" class="sec-pad" style="background:#EFE3D4; padding:90px 40px;">
+  <!-- ===== 7. FAQ ===== -->
+  <section id="faq" class="sec-pad" style="background:#EFE3D4; padding:90px 40px;">
     <div style="max-width:820px; margin:0 auto;">
       <p style="margin:0 0 12px; text-align:center; font-size:12px; font-weight:700; letter-spacing:3px; color:#B98A75; text-transform:uppercase;">Perguntas frequentes</p>
       <h2 class="sec-title" style="margin:0 0 48px; text-align:center; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:44px; color:#3B342D;">Ainda com dúvidas?</h2>
 
-      <div style="display:flex; flex-direction:column; gap:14px;">
+      <p style="margin:0 0 18px; font-size:11.5px; font-weight:700; letter-spacing:2.5px; color:#A9765D; text-transform:uppercase;">Psicoterapia</p>
+      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:44px;">
 
         <div style="background:#FBF7F1; border-radius:12px; overflow:hidden;">
           <button onClick="{{ onFaq0 }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; background:none; border:none; cursor:pointer; padding:22px 26px; text-align:left; font-family:'Mulish',sans-serif; font-size:16px; font-weight:700; color:#3B342D;">
             <span>O atendimento é online?</span>
-            <span style="font-size:20px; color:#B98A75; transition:transform .2s; transform:{{ faq0Icon }};" class="ph ph-plus"></span>
+            <span style="font-size:20px; color:#B98A75; transition:transform .2s; transform:{{ faq0Icon }}; flex-shrink:0;" class="ph ph-plus"></span>
           </button>
           <sc-if value="{{ faq0Open }}" hint-placeholder-val="{{ false }}">
             <p style="margin:0; padding:0 26px 24px; font-size:15px; line-height:1.75; color:#7A7065;">Sim. Todo o acompanhamento é feito online, por videochamada, com a mesma qualidade e o mesmo sigilo de um atendimento presencial.</p>
@@ -286,7 +375,7 @@
         <div style="background:#FBF7F1; border-radius:12px; overflow:hidden;">
           <button onClick="{{ onFaq1 }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; background:none; border:none; cursor:pointer; padding:22px 26px; text-align:left; font-family:'Mulish',sans-serif; font-size:16px; font-weight:700; color:#3B342D;">
             <span>Qual a duração das sessões?</span>
-            <span style="font-size:20px; color:#B98A75; transition:transform .2s; transform:{{ faq1Icon }};" class="ph ph-plus"></span>
+            <span style="font-size:20px; color:#B98A75; transition:transform .2s; transform:{{ faq1Icon }}; flex-shrink:0;" class="ph ph-plus"></span>
           </button>
           <sc-if value="{{ faq1Open }}" hint-placeholder-val="{{ false }}">
             <p style="margin:0; padding:0 26px 24px; font-size:15px; line-height:1.75; color:#7A7065;">Cada sessão tem em média 50 minutos, em um espaço acolhedor e seguro para você se expressar.</p>
@@ -296,7 +385,7 @@
         <div style="background:#FBF7F1; border-radius:12px; overflow:hidden;">
           <button onClick="{{ onFaq2 }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; background:none; border:none; cursor:pointer; padding:22px 26px; text-align:left; font-family:'Mulish',sans-serif; font-size:16px; font-weight:700; color:#3B342D;">
             <span>Com que frequência as sessões acontecem?</span>
-            <span style="font-size:20px; color:#B98A75; transition:transform .2s; transform:{{ faq2Icon }};" class="ph ph-plus"></span>
+            <span style="font-size:20px; color:#B98A75; transition:transform .2s; transform:{{ faq2Icon }}; flex-shrink:0;" class="ph ph-plus"></span>
           </button>
           <sc-if value="{{ faq2Open }}" hint-placeholder-val="{{ false }}">
             <p style="margin:0; padding:0 26px 24px; font-size:15px; line-height:1.75; color:#7A7065;">Normalmente as sessões são semanais, mas a frequência é ajustada conforme o seu momento e a sua necessidade.</p>
@@ -306,7 +395,7 @@
         <div style="background:#FBF7F1; border-radius:12px; overflow:hidden;">
           <button onClick="{{ onFaq3 }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; background:none; border:none; cursor:pointer; padding:22px 26px; text-align:left; font-family:'Mulish',sans-serif; font-size:16px; font-weight:700; color:#3B342D;">
             <span>A terapia realmente funciona?</span>
-            <span style="font-size:20px; color:#B98A75; transition:transform .2s; transform:{{ faq3Icon }};" class="ph ph-plus"></span>
+            <span style="font-size:20px; color:#B98A75; transition:transform .2s; transform:{{ faq3Icon }}; flex-shrink:0;" class="ph ph-plus"></span>
           </button>
           <sc-if value="{{ faq3Open }}" hint-placeholder-val="{{ false }}">
             <p style="margin:0; padding:0 26px 24px; font-size:15px; line-height:1.75; color:#7A7065;">A Terapia Cognitivo-Comportamental é baseada em evidências científicas e reconhecida pela sua eficácia no cuidado de diversas questões emocionais.</p>
@@ -314,21 +403,51 @@
         </div>
 
       </div>
+
+      <p style="margin:0 0 18px; font-size:11.5px; font-weight:700; letter-spacing:2.5px; color:#4C5940; text-transform:uppercase;">Empresas</p>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+
+        <div style="background:#FBF7F1; border-radius:12px; overflow:hidden;">
+          <button onClick="{{ onFaq4 }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; background:none; border:none; cursor:pointer; padding:22px 26px; text-align:left; font-family:'Mulish',sans-serif; font-size:16px; font-weight:700; color:#3B342D;">
+            <span>Vocês realizam treinamentos personalizados?</span>
+            <span style="font-size:20px; color:#5E6B4D; transition:transform .2s; transform:{{ faq4Icon }}; flex-shrink:0;" class="ph ph-plus"></span>
+          </button>
+          <sc-if value="{{ faq4Open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0; padding:0 26px 24px; font-size:15px; line-height:1.75; color:#7A7065;">Sim. Cada treinamento é construído a partir do contexto, dos desafios e dos objetivos da sua organização, com temas e formatos ajustados às necessidades das equipes.</p>
+          </sc-if>
+        </div>
+
+        <div style="background:#FBF7F1; border-radius:12px; overflow:hidden;">
+          <button onClick="{{ onFaq5 }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; background:none; border:none; cursor:pointer; padding:22px 26px; text-align:left; font-family:'Mulish',sans-serif; font-size:16px; font-weight:700; color:#3B342D;">
+            <span>Como solicitar uma proposta?</span>
+            <span style="font-size:20px; color:#5E6B4D; transition:transform .2s; transform:{{ faq5Icon }}; flex-shrink:0;" class="ph ph-plus"></span>
+          </button>
+          <sc-if value="{{ faq5Open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0; padding:0 26px 24px; font-size:15px; line-height:1.75; color:#7A7065;">Basta clicar em <strong>Solicitar Proposta</strong> e enviar uma mensagem pelo WhatsApp contando um pouco sobre a sua empresa e a demanda. A partir disso, retorno com uma proposta personalizada.</p>
+          </sc-if>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- ===== CTA FINAL ===== -->
+  <!-- ===== 8. CHAMADA FINAL ===== -->
   <section class="sec-pad" style="background:#D9B4A6; padding:84px 40px;">
     <div class="cta-final" style="max-width:1000px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:48px; flex-wrap:wrap;">
       <div style="flex:1; min-width:300px;">
-        <h2 style="margin:0 0 16px; font-family:'Cormorant Garamond',serif; font-weight:500; font-size:42px; line-height:1.1; color:#4A3B33;">Vamos começar sua jornada de transformação?</h2>
-        <p style="margin:0; font-size:16px; line-height:1.7; color:#6B564C; max-width:440px;">Estou aqui para te ajudar a construir uma vida com mais equilíbrio e bem-estar.</p>
+        <h2 style="margin:0 0 16px; font-family:'Cormorant Garamond',serif; font-weight:500; font-size:42px; line-height:1.1; color:#4A3B33;">Vamos conversar?</h2>
+        <p style="margin:0; font-size:16px; line-height:1.7; color:#6B564C; max-width:460px;">Se você busca um espaço de acolhimento para cuidar da sua saúde mental ou procura soluções para promover bem-estar na sua empresa, será um prazer conhecer sua necessidade.</p>
       </div>
-      <div style="text-align:center;">
-        <a href="{{ whatsapp }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:11px; background:#5E6B4D; color:#FBF7F1; text-decoration:none; padding:18px 36px; border-radius:999px; font-size:16px; font-weight:700; letter-spacing:.3px; box-shadow:0 16px 32px -14px rgba(74,59,51,0.6);">
-          <span style="font-size:22px;" class="ph ph-whatsapp-logo"></span> Agendar sessão
-        </a>
-        <p style="margin:14px 0 0; font-size:13px; color:#6B564C; font-weight:600;">Atendimento 100% online</p>
+      <div>
+        <div class="cta-btns" style="display:flex; flex-direction:column; gap:12px;">
+          <a href="{{ whatsapp }}" target="_blank" rel="noopener" class="btn-w" style="display:inline-flex; align-items:center; gap:11px; background:#5E6B4D; color:#FBF7F1; text-decoration:none; padding:17px 34px; border-radius:999px; font-size:15.5px; font-weight:700; letter-spacing:.3px; box-shadow:0 16px 32px -14px rgba(74,59,51,0.6);">
+            <span style="font-size:22px;" class="ph ph-whatsapp-logo"></span> Agendar Psicoterapia
+          </a>
+          <a href="{{ whatsappEmpresa }}" target="_blank" rel="noopener" class="btn-w" style="display:inline-flex; align-items:center; gap:11px; background:#3B342D; color:#F3EBDF; text-decoration:none; padding:17px 34px; border-radius:999px; font-size:15.5px; font-weight:700; letter-spacing:.3px; box-shadow:0 16px 32px -14px rgba(74,59,51,0.6);">
+            <span style="font-size:22px;" class="ph ph-buildings"></span> Solicitar Proposta
+          </a>
+        </div>
+        <p style="margin:14px 0 0; text-align:center; font-size:13px; color:#6B564C; font-weight:600;">Atendimento 100% online</p>
       </div>
     </div>
   </section>
@@ -340,10 +459,10 @@
         <span style="font-size:24px; color:#C9A78D;" class="ph ph-brain"></span>
         <span style="line-height:1.05;">
           <span style="display:block; font-family:'Cormorant Garamond',serif; font-size:21px; font-weight:600; color:#F3EBDF;">Bruna Dias</span>
-          <span style="display:block; font-size:9px; letter-spacing:3px; color:#9C8E7E; font-weight:600;">PSICOLOGIA · CRP XX/XXXXX</span>
+          <span style="display:block; font-size:9px; letter-spacing:3px; color:#9C8E7E; font-weight:600;">PSICOLOGIA · CRP 12/27975</span>
         </span>
       </div>
-      <p style="margin:0; font-size:12.5px; color:#9C8E7E;">© 2026 Bruna Dias · Psicoterapia online</p>
+      <p style="margin:0; font-size:12.5px; color:#9C8E7E;">© 2026 Bruna Dias · Psicologia Clínica e Organizacional</p>
     </div>
   </footer>
 
@@ -356,9 +475,9 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:900},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5500000000000&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:900},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5500000000000&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;googleRating&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5,0&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;googleReviewsUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
-  state = { open: 0 };
+  state = { open: 0, nav: false };
 
   toggle(i) {
     this.setState(s => ({ open: s.open === i ? -1 : i }));
@@ -368,15 +487,26 @@ class Component extends DCLogic {
     const open = this.state.open;
     const rot = (i) => (open === i ? 'rotate(45deg)' : 'rotate(0deg)');
     const phone = this.props.whatsappNumber ?? '5500000000000';
-    const msg = encodeURIComponent('Olá, Bruna! Gostaria de agendar uma sessão.');
+    const wa = (text) => `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
     return {
-      whatsapp: `https://wa.me/${phone}?text=${msg}`,
-      faq0Open: open === 0, faq1Open: open === 1, faq2Open: open === 2, faq3Open: open === 3,
-      faq0Icon: rot(0), faq1Icon: rot(1), faq2Icon: rot(2), faq3Icon: rot(3),
+      whatsapp: wa('Olá, Bruna! Gostaria de agendar uma sessão de psicoterapia.'),
+      whatsappEmpresa: wa('Olá, Bruna! Gostaria de solicitar uma proposta para a minha empresa.'),
+      googleRating: this.props.googleRating || '5,0',
+      googleUrl: this.props.googleReviewsUrl || 'https://www.google.com/maps/search/?api=1&query=Bruna+Dias+Psicologia',
+      navOpen: this.state.nav,
+      navIcon: this.state.nav ? 'ph-x' : 'ph-list',
+      onNav: () => this.setState(s => ({ nav: !s.nav })),
+      onNavClose: () => this.setState({ nav: false }),
+      faq0Open: open === 0, faq1Open: open === 1, faq2Open: open === 2,
+      faq3Open: open === 3, faq4Open: open === 4, faq5Open: open === 5,
+      faq0Icon: rot(0), faq1Icon: rot(1), faq2Icon: rot(2),
+      faq3Icon: rot(3), faq4Icon: rot(4), faq5Icon: rot(5),
       onFaq0: () => this.toggle(0),
       onFaq1: () => this.toggle(1),
       onFaq2: () => this.toggle(2),
       onFaq3: () => this.toggle(3),
+      onFaq4: () => this.toggle(4),
+      onFaq5: () => this.toggle(5),
     };
   }
 }
