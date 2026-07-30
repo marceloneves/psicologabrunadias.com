@@ -475,7 +475,7 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:900},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5500000000000&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;googleRating&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5,0&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;googleReviewsUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:900},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5547997503945&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;googleRating&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5,0&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;googleReviewsUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   state = { open: 0, nav: false };
 
@@ -486,7 +486,7 @@ class Component extends DCLogic {
   renderVals() {
     const open = this.state.open;
     const rot = (i) => (open === i ? 'rotate(45deg)' : 'rotate(0deg)');
-    const phone = this.props.whatsappNumber ?? '5500000000000';
+    const phone = this.props.whatsappNumber ?? '5547997503945';
     const wa = (text) => `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
     return {
       whatsapp: wa('Olá, Bruna! Gostaria de agendar uma sessão de psicoterapia.'),
